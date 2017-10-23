@@ -1,6 +1,6 @@
 {
   "name": "peritext-contextualizer-dicto",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Peritext default dicto contextualizer (commented videos)",
   "main": "dist/index.js",
   "scripts": {
