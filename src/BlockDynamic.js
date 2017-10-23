@@ -6,7 +6,8 @@ const DictoPlayer = inBrowser ? require('dicto-player') : null;
 
 export default ({
   resource = {},
-  contextualizer = {},
+  contextualizer = {
+  },
   // onExit,
 }) => {
   if (inBrowser) {

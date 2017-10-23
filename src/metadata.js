@@ -34,6 +34,12 @@ export default {
               fr: 'Colonnes',
               en: 'Columns'
             }
+          }, {
+            id: 'fullscreen',
+            labels: {
+              fr: 'Plein écran',
+              en: 'Full screen'
+            }
           }]
         }
       ]
