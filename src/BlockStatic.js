@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
 
 const isBrowser=new Function("try {return this===window;}catch(e){ return false;}");
@@ -9,24 +10,27 @@ function LinkRenderer(props) {
 }
 
 
-export default ({
+const BlockStatic = ({
   resource,
   contextualizer,
   contextualization
+}, {
+  datasets = {}
 }) => {
 
-  return (<figure className="peritext-contextualization peritext-contextualization-block peritext-contextualization-codex peritext-contextualizer-dicto">
+  const presentationData = resource.data && resource.data.presentationData;
+  const thumbnail = datasets[resource.data.thumbnailDataset];
+  return presentationData ? (<figure className="peritext-contextualization peritext-contextualization-block peritext-contextualization-codex peritext-contextualizer-dicto">
     {
-      resource.data.thumbnail ?
+      thumbnail ?
       <img className="resource-thumbnail"
-        src={resource.data.thumbnail}
+        src={thumbnail.uri}
       /> : 
         <div className="thumbnail-placeholder" />
     }
     {
       contextualizer.displayCommentsInCodex &&
-      resource.data &&
-      resource.data.data.map((block, index) => {
+      presentationData.data.map((block, index) => {
         const content = block.content;
         return (
           <blockquote key={index} key={index}>
@@ -38,5 +42,18 @@ export default ({
         )
       })
     }
-  </figure>);
+  </figure>) : null;
+};
+
+BlockStatic.propTypes = {
+  resource: PropTypes.object,
+  contextualizer: PropTypes.object,
+  contextualization: PropTypes.object,
+};
+
+BlockStatic.contextTypes = {
+  datasets: PropTypes.object,
 }
+
+
+export default BlockStatic;

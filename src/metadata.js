@@ -40,6 +40,12 @@ export default {
               fr: 'Plein écran',
               en: 'Full screen'
             }
+          }, {
+            id: 'pecking',
+            labels: {
+              fr: 'Picorage',
+              en: 'Pecking'
+            }
           }]
         }
       ]

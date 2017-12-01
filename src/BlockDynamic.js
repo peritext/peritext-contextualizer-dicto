@@ -16,7 +16,7 @@ export default ({
         className="peritext-contextualization peritext-contextualization-block peritext-contextualization-web peritext-contextualizer-dicto"
         >
         <DictoPlayer 
-          composition={resource.data}
+          composition={resource.presentationData}
           settings={{
             displayMode: contextualizer.displayMode || 'columns',
             allowEmbed: false,

@@ -773,6 +773,12 @@ exports.default = {
             fr: 'Plein écran',
             en: 'Full screen'
           }
+        }, {
+          id: 'pecking',
+          labels: {
+            fr: 'Picorage',
+            en: 'Pecking'
+          }
         }]
       }]
     }
@@ -814,7 +820,7 @@ exports.default = function (_ref) {
         className: 'peritext-contextualization peritext-contextualization-block peritext-contextualization-web peritext-contextualizer-dicto'
       },
       _react2.default.createElement(DictoPlayer, {
-        composition: resource.data,
+        composition: resource.presentationData,
         settings: {
           displayMode: contextualizer.displayMode || 'columns',
           allowEmbed: false
@@ -7760,6 +7766,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(1);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactMarkdown = __webpack_require__(14);
 
 var _reactMarkdown2 = _interopRequireDefault(_reactMarkdown);
@@ -7777,19 +7787,23 @@ function LinkRenderer(props) {
   );
 }
 
-exports.default = function (_ref) {
+var BlockStatic = function BlockStatic(_ref, _ref2) {
   var resource = _ref.resource,
       contextualizer = _ref.contextualizer,
       contextualization = _ref.contextualization;
+  var _ref2$datasets = _ref2.datasets,
+      datasets = _ref2$datasets === undefined ? {} : _ref2$datasets;
 
 
-  return _react2.default.createElement(
+  var presentationData = resource.data && resource.data.presentationData;
+  var thumbnail = datasets[resource.data.thumbnailDataset];
+  return presentationData ? _react2.default.createElement(
     'figure',
     { className: 'peritext-contextualization peritext-contextualization-block peritext-contextualization-codex peritext-contextualizer-dicto' },
-    resource.data.thumbnail ? _react2.default.createElement('img', { className: 'resource-thumbnail',
-      src: resource.data.thumbnail
+    thumbnail ? _react2.default.createElement('img', { className: 'resource-thumbnail',
+      src: thumbnail.uri
     }) : _react2.default.createElement('div', { className: 'thumbnail-placeholder' }),
-    contextualizer.displayCommentsInCodex && resource.data && resource.data.data.map(function (block, index) {
+    contextualizer.displayCommentsInCodex && presentationData.data.map(function (block, index) {
       var content = block.content;
       return _react2.default.createElement(
         'blockquote',
@@ -7800,8 +7814,20 @@ exports.default = function (_ref) {
         })
       );
     })
-  );
+  ) : null;
 };
+
+BlockStatic.propTypes = {
+  resource: _propTypes2.default.object,
+  contextualizer: _propTypes2.default.object,
+  contextualization: _propTypes2.default.object
+};
+
+BlockStatic.contextTypes = {
+  datasets: _propTypes2.default.object
+};
+
+exports.default = BlockStatic;
 
 /***/ }),
 /* 80 */
