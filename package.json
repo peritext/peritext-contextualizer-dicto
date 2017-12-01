@@ -37,14 +37,10 @@
     "sass-loader": "^6.0.6",
     "webpack": "^3.5.5",
     "webpack-node-externals": "^1.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0"
+    "pre-commit": "^1.2.2"
   },
   "dependencies": {
     "dicto-player": "0.0.2",
-    "pre-commit": "^1.2.2",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
     "react-markdown": "^2.5.0"
   }
 }
