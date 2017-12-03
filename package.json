@@ -1,11 +1,11 @@
 {
   "name": "peritext-contextualizer-dicto",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "Peritext default dicto contextualizer (commented videos)",
   "main": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist; mkdir dist;webpack",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -s ./example_datasets -p 9001",
     "build-storybook": "build-storybook",
     "add-build": "git add dist"
   },
@@ -34,13 +34,16 @@
     "babel-preset-stage-2": "^6.24.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "node-sass": "^4.5.3",
+    "pre-commit": "^1.2.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
     "sass-loader": "^6.0.6",
     "webpack": "^3.5.5",
-    "webpack-node-externals": "^1.6.0",
-    "pre-commit": "^1.2.2"
+    "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {
     "dicto-player": "0.0.2",
-    "react-markdown": "^2.5.0"
+    "react-markdown": "^2.5.0",
+    "axios": "^0.17.1"
   }
 }
