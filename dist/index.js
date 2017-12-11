@@ -7977,7 +7977,15 @@ var BlockStatic = (_temp = _class = function (_Component) {
 
   function BlockStatic(props) {
     (0, _classCallCheck3.default)(this, BlockStatic);
-    return (0, _possibleConstructorReturn3.default)(this, (BlockStatic.__proto__ || (0, _getPrototypeOf2.default)(BlockStatic)).call(this, props));
+
+    var _this = (0, _possibleConstructorReturn3.default)(this, (BlockStatic.__proto__ || (0, _getPrototypeOf2.default)(BlockStatic)).call(this, props));
+
+    _this.state = {
+      loading: true,
+      data: undefined
+    };
+    (0, _utils.updateData)(props, _this);
+    return _this;
   }
 
   (0, _createClass3.default)(BlockStatic, [{
